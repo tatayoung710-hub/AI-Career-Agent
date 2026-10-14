@@ -522,5 +522,13 @@ CREATE TRIGGER guard_resume_evidence_payload BEFORE UPDATE ON resume_evidence FO
 
 UPDATE alembic_version SET version_num='0002' WHERE alembic_version.version_num = '0001';
 
+-- Running upgrade 0002 -> 0003
+
+ALTER TABLE jobs ADD COLUMN jd_complete BOOLEAN DEFAULT true NOT NULL;
+
+UPDATE jobs SET jd_complete = FALSE WHERE jd_text LIKE '%ԭ����δ�ṩ���� JD%';
+
+UPDATE alembic_version SET version_num='0003' WHERE alembic_version.version_num = '0002';
+
 COMMIT;
 
