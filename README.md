@@ -36,10 +36,6 @@ PostgreSQL 的任务表提供持久队列和 `SKIP LOCKED` 多 Worker 领取；�
 
 需要 Python 3.12+、Node.js 24+、pnpm 11 和 Git。项目提供脚本生成开发 JWT/数据库密钥、迁移数据库并在后台启动 API、Worker 和前端：
 
-```powershell
-.
-scripts\configure.py
-```
 
 `configure.py` 是 Python 脚本，请这样运行：
 
@@ -50,15 +46,13 @@ python scripts\configure.py
 随后：
 
 ```powershell
-.
-scripts\start-local.ps1
+.\scripts\start-local.ps1
 ```
 
 打开 <http://127.0.0.1:5173>。本机需要可用的 Python/Node 命令。停止服务：
 
 ```powershell
-.
-scripts\stop-local.ps1
+.\scripts\stop-local.ps1
 ```
 
 也可用 Docker Compose 启动 PostgreSQL、API、Worker 和 Nginx 前端：
